@@ -15,7 +15,7 @@ var fight = function(enemy) {
 
 //debugger;
   while(playerInfo.health > 0 && enemy.health > 0) {
-
+    
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.")
 
     if (promptFight === "skip" || promptFight === "SKIP") {
@@ -95,9 +95,10 @@ var startGame = function() {
   playerInfo.reset();
   
   for (var i = 0; i <enemyInfo.length; i++){
-
+    
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+      
       var pickedEnemyObj = enemyInfo[i];
 
     pickedEnemyObj.health = randomNumber(40, 60);
@@ -221,9 +222,22 @@ var randomNumber = function(min, max) {
 
 };
 
+// function to set player name
+var getPlayerName = function() {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+
+  console.log("Your robot's name is " + name);
+
+  return name;
+}
+
 var playerInfo = {
 
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
